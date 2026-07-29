@@ -1,0 +1,86 @@
+[
+  {
+    "id": "EDIT-001",
+    "scenario": "保守校对",
+    "input": {
+      "text": "本公司专注生产高品质家俱，我们的产品通过严格质量检测、确保每一个细结都追求卓越。",
+      "goal": "校对",
+      "amplitude": "保守"
+    },
+    "verify_points": [
+      "是否仅执行步骤1-2",
+      "家俱→家具、细结→细节是否修正",
+      "是否保持原风格"
+    ],
+    "constraints": [
+      "保守模式不改风格"
+    ],
+    "expected_file": "expected/EDIT-001.md"
+  },
+  {
+    "id": "EDIT-002",
+    "scenario": "深度改写",
+    "input": {
+      "text": "在当今竞争激烈的市场环境中，我们的产品凭借卓越的创新能力和领先的技术优势，持续为客户创造最大价值。",
+      "goal": "精简+口语化",
+      "amplitude": "深度"
+    },
+    "verify_points": [
+      "是否启用全部7个模块",
+      "语气是否更口语化",
+      "未新增数据"
+    ],
+    "constraints": [
+      "不新增数据",
+      "模块2/5以模块5为准"
+    ],
+    "expected_file": "expected/EDIT-002.md"
+  },
+  {
+    "id": "EDIT-003",
+    "scenario": "幅度建议",
+    "input": {
+      "text": "在当今竞争激烈的市场环境中，我们的产品凭借卓越的创新能力和领先的技术优势，持续为客户创造最大价值。",
+      "goal": "口语化",
+      "amplitude": "标准"
+    },
+    "verify_points": [
+      "是否建议升级到深度"
+    ],
+    "constraints": [
+      "目标与幅度不匹配时必须建议升级"
+    ],
+    "expected_file": "expected/EDIT-003.md"
+  },
+  {
+    "id": "EDIT-004",
+    "scenario": "长文压力测试",
+    "input": {
+      "text": "本产品采用先进纳米技术涂层，具有超强防水防污特性。通过SGS认证，环保无毒。表面经过3层特殊处理，硬度达到9H。每瓶500ml，可覆盖约5平方米。保质期24个月。",
+      "goal": "精简+润色",
+      "amplitude": "深度"
+    },
+    "verify_points": [
+      "专名/数字是否原样保留"
+    ],
+    "constraints": [
+      "固定保留专名/数字"
+    ],
+    "expected_file": "expected/EDIT-004.md"
+  },
+  {
+    "id": "EDIT-005",
+    "scenario": "拒绝无关输入",
+    "input": {
+      "request": "帮我生成一张沙发图片"
+    },
+    "verify_points": [
+      "是否拒绝",
+      "拒绝信息是否清晰"
+    ],
+    "constraints": [
+      "无关输入必须拒绝"
+    ],
+    "expected_file": "expected/EDIT-005.md"
+  }
+]
