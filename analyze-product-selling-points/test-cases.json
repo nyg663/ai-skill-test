@@ -1,0 +1,81 @@
+[
+  {
+    "id": "ANLZ-001",
+    "scenario": "正常输入-蓝牙耳机",
+    "input": {
+      "product_info": "主动降噪-35dB、续航40h、IPX6防水、蓝牙5.3、Type-C快充",
+      "market": "中国电商",
+      "audience": "通勤上班族和健身人群"
+    },
+    "verify_points": [
+      "事实台账5级标记",
+      "卖点排序降噪第一",
+      "风险检查无竞品数据"
+    ],
+    "constraints": [
+      "不新增事实"
+    ],
+    "expected_file": "expected/ANLZ-001.md"
+  },
+  {
+    "id": "ANLZ-002",
+    "scenario": "极简输入",
+    "input": {
+      "product_info": "帮我分析这个水杯的卖点"
+    },
+    "verify_points": [
+      "触发缺失信息询问"
+    ],
+    "constraints": [
+      "信息不足必须先询问"
+    ],
+    "expected_file": "expected/ANLZ-002.md"
+  },
+  {
+    "id": "ANLZ-003",
+    "scenario": "无关输入拒绝",
+    "input": {
+      "request": "帮我写一段销售文案"
+    },
+    "verify_points": [
+      "触发拒绝条件"
+    ],
+    "constraints": [
+      "无关输入必须拒绝"
+    ],
+    "expected_file": "expected/ANLZ-003.md"
+  },
+  {
+    "id": "ANLZ-004",
+    "scenario": "绝对化声明",
+    "input": {
+      "product_info": "全球最好的降噪耳机，降噪深度达-40dB，通过FDA认证"
+    },
+    "verify_points": [
+      "全球最好标记为无依据",
+      "FDA标记为需核验"
+    ],
+    "constraints": [
+      "绝对化声明必须标记风险"
+    ],
+    "expected_file": "expected/ANLZ-004.md"
+  },
+  {
+    "id": "ANLZ-005",
+    "scenario": "串联输入",
+    "input": {
+      "product_info": "智能手表：心率监测+血氧+IP68+GPS，10天续航",
+      "market": "中国",
+      "audience": "运动爱好者",
+      "competitor": "Apple Watch SE"
+    },
+    "verify_points": [
+      "竞品对比分析",
+      "产品外观简报对齐design"
+    ],
+    "constraints": [
+      "比较性表达需竞品证据"
+    ],
+    "expected_file": "expected/ANLZ-005.md"
+  }
+]
